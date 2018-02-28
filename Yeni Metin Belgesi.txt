@@ -18,8 +18,13 @@ git commit -m "Django uygulamasında ilk commit'im"
 git remote add origin https://github.com/emrekrdl1/my-first-blog.git // githubdaki kullanıcı adı ve proje adına göre uygun yerler değişir
 git push -u origin master
 https://tutorial.djangogirls.org/tr/deploy/ //bu kısımdaki işlemleri yap
+
+from django.conf.urls import include
+from django.conf.urls import url
 from django.contrib import admin
-url(r'', include('blog.urls')), // mysite urls nin içine bunlar eklenir
+urlpatterns = [
+    url(r'^admin/', admin.site.urls),
+    url(r'', include('main.urls')),] // mysite urls nin içine silinerek bunlar eklenir
 from django.conf.urls import url
 from . import views
 urlpatterns = [
